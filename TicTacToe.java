@@ -4,7 +4,7 @@
 // File description: Tic tac toe game where the user versus a bot in a 3x3 grid. The program uses a HashMap to store the positions of each player. The keys represent the coordinates on the grid, and the values represent the player and bot
 // Other files in this project: None
 // Challenges: creating algorithms to iterate and search through the current board, logic/game conditions(win conditions, filled spaces)
-// Time Spent: 
+// Time Spent: about 7 hours
 //
 //               Revision History
 // Date:         By:             Action:
@@ -31,7 +31,7 @@ public class TicTacToe {
             System.out.print("Do you want to play again? (yes/no): ");
             String playAgain = scanner.next().toLowerCase();
             if (!playAgain.equals("yes")) {
-                System.out.println("Thanks for playing! Goodbye!");
+                System.out.println("Thanks for playing!");
                 break;
             }
         }
@@ -69,11 +69,10 @@ public class TicTacToe {
                 System.out.println("It's a draw!");
                 break;
             }
-            // switches who goes first
             playerTurn = !playerTurn;
         }
     }
-    // method to create the board, String represents the cell coordinates and character represents tthe content 
+    // method to create the board, String represents the cell coordinates and character represents the content 
     private static HashMap<String, Character> initializeBoard() {
         // creates a hashmap to represent the game, the strings 
         HashMap<String, Character> board = new HashMap<>();
@@ -104,7 +103,7 @@ public class TicTacToe {
             System.out.print("Enter your move (row column), or type 'exit' to quit: ");
             String input = scanner.next();
             if (input.equals("exit")) {
-                System.out.println("Exiting the game...");
+                System.out.println("Exiting the game.");
                 System.exit(0);
             }
             // promts the user to enter their desired move, row then column
@@ -115,7 +114,7 @@ public class TicTacToe {
                 // exception handling if the player inputs an invalid character
             } catch (NumberFormatException | java.util.InputMismatchException e) {
                 System.out.println("Invalid input. Please enter row and column numbers.");
-                scanner.nextLine(); // Consume the invalid input
+                scanner.nextLine();
                 continue;
             }
             // if the desired move is available, it will place an X marking the players move
@@ -148,7 +147,7 @@ public class TicTacToe {
             }
         }
     }
-    // method that checks each possilbe 3 in a row/column/diagnol to see if a player wins
+    // method that checks each possible 3 in a row/column/diagnol to see if a player wins
     private static boolean checkWin(HashMap<String, Character> board, char player) {
         // check rows, column, and diagnols for a winner
         for (int i = 0; i < 3; i++) {
